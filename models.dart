@@ -23,7 +23,7 @@ class Products{
   int? productQuantity;
   bool? isFav;
 
-  Products(this.productName, productPrice, this.productQuantity, this.isFav);
+  Products(this.productName, this.productPrice, this.productQuantity, this.isFav);
 
   factory Products.fromJson(Map<String, dynamic> i) {
     return Products(

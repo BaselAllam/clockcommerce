@@ -1,26 +1,6 @@
+import 'controllers.dart';
+import 'models.dart';
 
-
-
-List<Map<String, dynamic>> favData = [
-    {
-      'favId' : 1,
-      'productData' : {
-        'productName' : 'Apple',
-        'productPrices' : 200,
-        'productQuantity' : 5
-      },
-      'userName' : 'ahmed'
-    },
-    {
-      'favId' : 2,
-      'productData' : {
-        'productName' : 'Mango',
-        'productPrices' : 300,
-        'productQuantity' : 10
-      },
-      'userName' : 'masoud'
-    },
-  ];
 
   List<Map<String, dynamic>> products = [
     {
@@ -55,3 +35,22 @@ List<Map<String, dynamic>> favData = [
       'email' : 'masoud.com'
     },
   ];
+
+
+  void main() {
+
+    MainController mainController = MainController();
+
+    List<Products> productss = mainController.createListOfProductObj(products);
+
+    for(Products i in productss) {
+      print('Name ${i.productName} Price ${i.productPrice}');
+    }
+
+    mainController.addFav(productss[0], 'Bassel', 1);
+    mainController.addFav(productss[1], 'Bassel Allam', 2);
+
+    mainController.removeFav(productss[1]);
+
+    print(mainController.allFav);
+  }

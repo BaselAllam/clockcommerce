@@ -1,7 +1,12 @@
 import 'models.dart';
 
+class Inter{}
 
-class ProductController{
+
+class MainController extends Inter with ProductController, FavController{}
+
+
+mixin ProductController on Inter{
 
 
   Products createProductObject(Map<String, dynamic> product) {
@@ -26,7 +31,7 @@ class ProductController{
 
 
 
-class FavController{
+mixin FavController on Inter{
 
   List<Products> _allFav = [];
   List<Products> get allFav => _allFav;
